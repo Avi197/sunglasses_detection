@@ -1,7 +1,8 @@
+import os.path
 import cv2
 import numpy as np
 import glob
-import random
+from pathlib import Path
 
 
 def eyeglass_detection(img_path):
@@ -35,17 +36,33 @@ def eyeglass_detection(img_path):
     return boxes
 
 
+def get_coord(in_path, out_path):
+    for file in glob.glob(os.path.join(in_path, '*.jpg')):
+        boxes = eyeglass_detection(img_path=file)
+        labels = os.path.join(out_path, f'{Path(file).stem}.txt')
+        if boxes:
+            with open(labels, 'w') as f:
+                for box in boxes:
+                    fm = f'0 {box[0]} {box[1]} {box[2]} {box[3]}'
+                    f.write(fm)
+
+
 if __name__ == '__main__':
-    modelWeights = "/home/phamson/data/yolov3_training_last.weights"
-    net = cv2.dnn.readNet(modelWeights, "yolov3_testing.cfg")
+    modelWeights = "/home/phamson/model/yolov3_glasses/yolov3_training_last.weights"
+    net = cv2.dnn.readNet(modelWeights, "/home/phamson/model/yolov3_glasses/yolov3_testing.cfg")
     classes = ["sunglasses"]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
     # img_path = '/home/phamson/data/sunglasses/glass.jpg'
+    sunglass = '/home/phamson/data/sunglasses/yolo_eyeglass/sunglasses'
+    sunglass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/sunglasses_labels'
 
-    folder_path = ''
+    norm_glass = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses'
+    norm_glass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses_labels'
+
+    get_coord(norm_glass, norm_glass_label)
     # img = temp(img_path)
     # cv2.imshow("Image", img)
     # key = cv2.waitKey(0)
