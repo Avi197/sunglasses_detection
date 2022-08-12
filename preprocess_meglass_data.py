@@ -17,7 +17,7 @@ for img in glob.glob(glob_path):
     if Path(img).name in lines:
         glass.append(img)
 
-normal_glass = random.sample(glass, 1500)
+normal_glass = random.sample(glass, 1700)
 
 for i in normal_glass:
     dst = os.path.join(normal_glass_path, Path(i).name)
