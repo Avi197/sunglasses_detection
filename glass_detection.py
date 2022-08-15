@@ -1,7 +1,9 @@
 import os.path
 import cv2
-import numpy as np
 import glob
+from tqdm import tqdm
+
+import numpy as np
 from pathlib import Path
 
 
@@ -36,14 +38,14 @@ def eyeglass_detection(img_path):
     return boxes
 
 
-def get_coord(in_path, out_path):
-    for file in glob.glob(os.path.join(in_path, '*.jpg')):
+def get_coord(in_path, out_path, num_class):
+    for file in tqdm(glob.glob(os.path.join(in_path, '*.jpg'))):
         boxes = eyeglass_detection(img_path=file)
-        labels = os.path.join(out_path, f'{Path(file).stem}.txt')
+        labels = os.path.join(out_path, f'{Path(file).stem}_{num_class}.txt')
         if boxes:
             with open(labels, 'w') as f:
                 for box in boxes:
-                    fm = f'0 {box[0]} {box[1]} {box[2]} {box[3]}'
+                    fm = f'{num_class} {box[0]} {box[1]} {box[2]} {box[3]}'
                     f.write(fm)
 
 
@@ -62,7 +64,7 @@ if __name__ == '__main__':
     norm_glass = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses'
     norm_glass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses_labels'
 
-    get_coord(norm_glass, norm_glass_label)
+    get_coord(sunglass, sunglass_label, 1)
     # img = temp(img_path)
     # cv2.imshow("Image", img)
     # key = cv2.waitKey(0)
