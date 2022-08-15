@@ -43,7 +43,7 @@ def get_coord(in_path, out_path):
         if boxes:
             with open(labels, 'w') as f:
                 for box in boxes:
-                    fm = f'0 {box[0]} {box[1]} {box[2]} {box[3]}'
+                    fm = f'0 {box[0]} {box[1]} {box[2]} {box[3]}\n'
                     f.write(fm)
 
 
