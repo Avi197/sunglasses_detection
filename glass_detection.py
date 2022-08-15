@@ -65,7 +65,3 @@ if __name__ == '__main__':
     norm_glass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses_labels'
 
     get_coord(sunglass, sunglass_label, 1)
-    # img = temp(img_path)
-    # cv2.imshow("Image", img)
-    # key = cv2.waitKey(0)
-    # cv2.destroyAllWindows()
