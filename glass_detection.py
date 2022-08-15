@@ -38,14 +38,15 @@ def eyeglass_detection(img_path):
     return boxes
 
 
-def get_coord(in_path, out_path, num_class):
+def get_coord(in_path, out_path):
     for file in tqdm(glob.glob(os.path.join(in_path, '*.jpg'))):
+        class_num = file.split('_')[1]
         boxes = eyeglass_detection(img_path=file)
-        labels = os.path.join(out_path, f'{Path(file).stem}_{num_class}.txt')
+        labels = os.path.join(out_path, f'{Path(file).stem}.txt')
         if boxes:
             with open(labels, 'w') as f:
                 for box in boxes:
-                    fm = f'{num_class} {box[0]} {box[1]} {box[2]} {box[3]}\n'
+                    fm = f'{class_num} {box[0]} {box[1]} {box[2]} {box[3]}\n'
                     f.write(fm)
 
 
@@ -57,11 +58,13 @@ if __name__ == '__main__':
     output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
-    # img_path = '/home/phamson/data/sunglasses/glass.jpg'
-    sunglass = '/home/phamson/data/sunglasses/yolo_eyeglass/sunglasses'
-    sunglass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/sunglasses_labels'
+    img_path = '/home/phamson/data/sunglasses/yolo_eyeglass/yolo_eyeglasses/images'
+    labels_path = '/home/phamson/data/sunglasses/yolo_eyeglass/yolo_eyeglasses/labels'
 
-    norm_glass = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses'
-    norm_glass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses_labels'
+    # sunglass = '/home/phamson/data/sunglasses/yolo_eyeglass/sunglasses'
+    # sunglass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/sunglasses_labels'
+    #
+    # norm_glass = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses'
+    # norm_glass_label = '/home/phamson/data/sunglasses/yolo_eyeglass/norm_glasses_labels'
 
-    get_coord(sunglass, sunglass_label, 1)
+    get_coord(img_path, labels_path, 1)
