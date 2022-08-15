@@ -45,7 +45,7 @@ def get_coord(in_path, out_path, num_class):
         if boxes:
             with open(labels, 'w') as f:
                 for box in boxes:
-                    fm = f'{num_class} {box[0]} {box[1]} {box[2]} {box[3]}'
+                    fm = f'{num_class} {box[0]} {box[1]} {box[2]} {box[3]}\n'
                     f.write(fm)
 
 
