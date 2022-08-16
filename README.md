@@ -27,7 +27,12 @@ https://github.com/shreyas0906/Selfies-with-sunglasses
 
 ### Usage
 
-Run glass_detection.py to create normal glasses labels and sunglasses labels dataset
+Run ```glass_detection.py``` to create normal glasses labels and sunglasses labels dataset
 
-Train new dataset with eyeglass_data.yaml file using yolov5
+Train new dataset with ```eyeglass_data.yaml``` file using yolov5
+
+Using only 3 epochs already give acceptable result
+
+```python train.py --img 120 --batch 16 --epochs 3 --data eyeglasses_data.yaml --weights yolov5s.pt```
+
 
