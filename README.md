@@ -37,12 +37,11 @@ Using only 3 epochs already give acceptable result
 
 ### Results
 
-![normal_glasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/501.jpg)
+Check /results for more
 
-![normal_glasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/images (5).jpg)
+![normal_glasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/eyeglasses_1.jpg)
 
-![sunglasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/images (4).jpg)
+![sunglasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/sunglasses_1.jpg)
 
-![sunglasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/sunglasses.jpg)
 
 
