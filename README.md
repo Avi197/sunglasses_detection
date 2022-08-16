@@ -1,4 +1,4 @@
-sunglasses detection using Yolov5
+## Sunglasses vs Eyeglasses detection using Yolov5
 
 There is not a lot of good "sunglasses" detection model, so I created one with the least amount of effort possible using
 yolov5
@@ -34,5 +34,15 @@ Train new dataset with ```eyeglass_data.yaml``` file using yolov5
 Using only 3 epochs already give acceptable result
 
 ```python train.py --img 120 --batch 16 --epochs 3 --data eyeglasses_data.yaml --weights yolov5s.pt```
+
+### Results
+
+![normal_glasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/501.jpg)
+
+![normal_glasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/images (5).jpg)
+
+![sunglasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/images (4).jpg)
+
+![sunglasses](https://github.com/Avi197/sunglasses_detection/blob/master/results/sunglasses.jpg)
 
 
