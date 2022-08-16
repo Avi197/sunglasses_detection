@@ -3,10 +3,10 @@ sunglasses detection using Yolov5
 There is not a lot of good "sunglasses" detection model, so I created one with the least amount of effort possible using
 yolov5
 
-Use an existing yolov3 model to detect eyeglasses
-Use normal glass data to create yolo labels with normal glass
-Use sunglasses data to create yolo labels with sunglasses
-Use those 2 labels to train a new yolo model to detect normal glass and sunglasses
+Use an existing yolov3 model to detect eyeglasses </br>
+Use normal glass data to create yolo labels with normal glass </br>
+Use sunglasses data to create yolo labels with sunglasses </br>
+Use those 2 labels to train a new yolo model to detect normal glass and sunglasses </br>
 
 
 #### Yolov3 eyeglasses
