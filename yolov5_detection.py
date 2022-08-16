@@ -10,7 +10,7 @@ model = torch.hub.load('/home/phamson/github/yolov5', 'custom',
 
 # Images
 path = '/home/phamson/data/sunglasses/test'
-img_path = 'images (4).jpeg'  # or file, Path, PIL, OpenCV, numpy, list
+img_path = 'sunglasses.jpg'  # or file, Path, PIL, OpenCV, numpy, list
 img = os.path.join(path, img_path)
 # Inference
 results = model(img, size=120)
