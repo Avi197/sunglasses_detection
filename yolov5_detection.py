@@ -17,6 +17,7 @@ results = model(img, size=120)
 
 # Results
 results.show()
+results.crop()
 results.print()  # or .show(), .save(), .crop(), .pandas(), etc.
 results.pandas().xyxy[0]
 # results.crop()
